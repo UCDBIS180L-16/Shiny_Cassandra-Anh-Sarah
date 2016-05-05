@@ -21,7 +21,7 @@ shinyUI(fluidPage(
            "Please use the radio boxes below to choose a trait",
            "for plotting and select coloring by region or population."),
     
-  # Sidebar with a a radio box to input which trait will be plotted  
+  # Sidebar with a radio box to input which trait will be plotted  
   sidebarLayout(
     sidebarPanel(
       radioButtons("trait", #the input variable that the value will go into
@@ -35,7 +35,16 @@ shinyUI(fluidPage(
                      )
       )),
     
-    # Show a plot of the generated distribution
+    # Sidebar with a radio box to input coloring by region or population
+    sidebarPanel(
+      radioButtons("color", #input variable for region or population
+                   "Select coloring by region or ancestral population:",
+                   c("Region",
+                     "popID"
+                   )
+      )),
+  
+  # Show a plot of the generated distribution
     mainPanel(plotOutput("violinPlot")
     )
   )
