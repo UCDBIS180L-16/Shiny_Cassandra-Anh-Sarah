@@ -9,6 +9,9 @@
 
 library(shiny)
 
+load("data_from_SNP_lab.Rdata")
+data.pheno.mds <- merge(geno.mds, data.pheno, by = "row.names", all = TRUE)
+
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
