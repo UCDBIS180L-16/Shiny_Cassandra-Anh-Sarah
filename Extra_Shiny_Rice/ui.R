@@ -9,25 +9,35 @@
 
 library(shiny)
 
-# Define UI for application that draws a histogram
+# Define UI for application that draws a violin plot
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
-  
-  # Sidebar with a slider input for number of bins 
+  titlePanel("Rice Seed Data"),
+
+  # Application description
+  helpText("This application creates a violin plot to examine rice seed data",
+           "from different regions and ancestral populations.",
+           "Please use the radio boxes below to choose a trait",
+           "for plotting and select coloring by region or population."),
+    
+  # Sidebar with a a radio box to input which trait will be plotted  
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
-    ),
+      radioButtons("trait", #the input variable that the value will go into
+                   "Select a trait:",
+                   c("Seed.number.per.panicle",
+                     "Seed.length",
+                     "Seed.width",
+                     "Seed.volume",
+                     "Seed.surface.area",
+                     "Seed.length.width.ratio"
+                     )
+      )),
     
     # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
+    mainPanel(plotOutput("violinPlot")
     )
   )
+))
 ))
