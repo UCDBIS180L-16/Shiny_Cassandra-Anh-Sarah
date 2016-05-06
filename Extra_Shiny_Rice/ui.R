@@ -26,7 +26,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       # Radio box to select trait
-      radioButtons("trait", #the input variable that the value will go into
+      checkboxGroupInput("trait", #the input variable that the value will go into
                    "Select a trait:",
                    c("Seed.number.per.panicle",
                      "Seed.length",
