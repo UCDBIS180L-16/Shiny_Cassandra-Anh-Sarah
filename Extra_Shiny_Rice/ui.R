@@ -45,7 +45,7 @@ shinyUI(fluidPage(
       )),
   
   # Show a plot of the generated distribution
-    mainPanel(plotOutput("violinPlot")
-    )
+    mainPanel(plotOutput("violinPlot"),
+              img(src="rice.png", height = 400, width = 400))
   )
 ))
