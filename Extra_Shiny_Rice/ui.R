@@ -21,9 +21,11 @@ shinyUI(fluidPage(
            "Please use the radio boxes below to choose a trait",
            "for plotting and select coloring by region or population."),
     
-  # Sidebar with a radio box to input which trait will be plotted  
+  # Sidebar with a radio box to input which trait will be plotted
+  # and a radio box to input population or region coloring
   sidebarLayout(
     sidebarPanel(
+      # Radio box to select trait
       radioButtons("trait", #the input variable that the value will go into
                    "Select a trait:",
                    c("Seed.number.per.panicle",
@@ -33,10 +35,8 @@ shinyUI(fluidPage(
                      "Seed.surface.area",
                      "Seed.length.width.ratio"
                      )
-      )),
-    
-    # Sidebar with a radio box to input coloring by region or population
-    sidebarPanel(
+      ),
+      # Radio box to input coloring by region or population
       radioButtons("color", #input variable for region or population
                    "Select coloring by region or ancestral population:",
                    c("Region",
