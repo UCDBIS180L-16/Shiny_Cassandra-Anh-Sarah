@@ -14,11 +14,11 @@ shinyUI(fluidPage(
   
   # Application title
   titlePanel("Rice Seed Data"),
-
+  img(src="rice.png", height = 100, width = 100),
   # Application description
-  helpText("This application creates a violin plot to examine rice seed data",
+  helpText("This application creates both a violinplot and boxplot to examine rice seed data",
            "from different regions and ancestral populations.",
-           "Please use the radio boxes below to choose a trait",
+           "Please use the checkboxes below to choose traits",
            "for plotting and select coloring by region or population."),
     
   # Sidebar with a radio box to input which trait will be plotted
@@ -45,7 +45,11 @@ shinyUI(fluidPage(
       )),
   
   # Show a plot of the generated distribution
-    mainPanel(plotOutput("violinPlot"),
-              img(src="rice.png", height = 400, width = 400))
+  mainPanel(
+    tabsetPanel(
+      tabPanel("violinplot", plotOutput("violinPlot")),
+      tabPanel("boxplot", plotOutput("boxplot")
+              
   )
 ))
+)))
